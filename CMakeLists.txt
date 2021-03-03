@@ -29,8 +29,8 @@ add_executable(week1
 #        389.cpp
 #        main.cpp
 #        547.cpp
-        Util.hpp
-        UF.hpp
+        Utils/Util.hpp
+        Utils/UF.hpp
 #        189.cpp
 #        123.cpp
 #        123_2.cpp
@@ -107,13 +107,13 @@ add_executable(week1
 #        106.cpp
 #        241.cpp
 #        435.cpp
-        c++detail.cpp
-        )
+        面试/2021_3_1_1.cpp)
 
 target_link_directories(
         week1
         PRIVATE
         abseil-cpp
+        Utils
 )
 # Declare dependency on the absl::strings library
 #target_link_libraries(week1 absl::Mutex)

@@ -1,0 +1,69 @@
+/**
+ * Copyright (c) 2020, SeekLoud Team.
+ * Date: 2021/1/21
+	* Main Developer: hewro
+	* Developer:
+ * Description: 
+ * Refer:
+ */
+#include "../Utils/Util.hpp"
+
+class Solution {
+public:
+
+
+    int maximalSquare(vector<vector<char>>& matrix) {
+        if (matrix.size() <=0){
+            return 0;
+        }
+        int maxLength = 0;//���߳�
+        int rowNum = matrix.size();
+        int columnNum = matrix[0].size();
+
+        for (int i = 0; i < matrix.size(); ++i) {
+            for (int j = 0; j < matrix[i].size(); ++j) {
+                if (matrix[i][j] != '1') continue;
+                maxLength = std::max(maxLength,1);
+                //�鿴��Ԫ�ص��Һ����Ƿ�Ϊ1
+                int mayLength = std::min(rowNum - i, columnNum - j);//���ܵ���������α߳�
+                for (int k = 2; k <= mayLength; ++k) {
+                    //�ж��Ƿ������i,jΪ���ϽǶ���ı��Ϊk��������
+                    if (matrix[i + k - 1][j + k -1] == '0'){//���ж����½ǣ�ԭ����ÿ���ж���������Ҫ����ǰ���С����������Ϣ�������½��ǵױߺ��Ҳ�ߵĹ�������
+                        break;//�����ڱ߳�С�������Σ��͸������ڱ߳�����������ˣ��������Ϳ��Խ���������
+                    }
+                    bool isOK = true;
+                    for (int l = 0; l < k-1; ++l) {//�ײ�
+                        if (matrix[i + k - 1][j + l] == '0' || matrix[i + l][j + k - 1] == '0'){
+                            isOK = false;
+                            break;
+                        }
+                    }
+
+                    if (isOK){//��������
+                        if (k > maxLength){
+                            maxLength = k;
+                        }
+                    }else{
+                        break;
+                    }
+
+                }
+
+
+            }
+        }
+
+        return maxLength * maxLength;
+    }
+
+
+
+};
+
+int main(){
+
+    Solution solution;
+    vector<vector<char>> input{'0'};
+    std::cout << solution.maximalSquare(input) << std::endl;
+}
+
