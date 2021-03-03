@@ -1,0 +1,119 @@
+cmake_minimum_required(VERSION 3.17)
+project(week1 VERSION 1.0.0)
+
+set(CMAKE_CXX_STANDARD 14)
+
+
+# Process Abseil's CMake build system
+#add_subdirectory(abseil-cpp)
+
+#add_executable(hello_world hello_Word.cpp)
+#
+## Declare dependency on the absl::strings library
+#target_link_libraries(hello_world absl::strings)
+#target_link_libraries(hello_world absl::synchronization)
+
+
+add_executable(week1
+#        714.cpp
+#        746.cpp
+#        103.cpp
+#        103_2.cpp
+#        387.cpp
+#        135.cpp
+#        205.cpp
+#        205_2.cpp
+#        test_uint32.cpp
+#        testmap.cpp
+#        714_2.cpp
+#        389.cpp
+#        main.cpp
+#        547.cpp
+        Util.hpp
+        UF.hpp
+#        189.cpp
+#        123.cpp
+#        123_2.cpp
+#        123_3.cpp
+#        228.cpp
+#        testMap.cpp
+#        1202.cpp
+#        testlock.cpp
+#        testlist.cpp
+#        1018.cpp
+#        947.cpp
+#        104.cpp
+#        628.cpp
+#        169.cpp
+#        221.cpp
+#        236.cpp
+#        989.cpp
+#        17.cpp
+#        146.cpp
+#        1319.cpp
+#        160.cpp
+#        461.cpp
+#        22.cpp
+#        287.cpp
+#        674.cpp
+#        959.cpp
+#        1128.cpp
+#        1631.cpp
+#        1631_2.cpp
+#        724.cpp
+#        142.cpp
+#        210.cpp
+#        207.cpp
+#        888.cpp
+#        543.cpp
+#        70.cpp
+#        2.cpp
+#        309.cpp
+#        101.cpp
+#        424.cpp
+#        94.cpp
+#        399.cpp
+#        102.cpp
+#        643.cpp
+#        20.cpp
+#        139.cpp
+#        1208_2.cpp
+#        1208.cpp
+#        1423.cpp
+#        79.cpp
+#        155.cpp
+#        64.cpp
+#        200.cpp
+#        31.cpp
+#        198.cpp
+#        337.cpp
+#        438.cpp
+#        338.cpp
+#        191.cpp
+#        3.cpp
+#        5.cpp
+#        5_2.cpp
+#        300_2.cpp
+#        1143.cpp
+#        516.cpp
+#        21.cpp
+#        1288.cpp
+#        56.cpp
+#        986.cpp
+#        116.cpp
+#        114.cpp
+#        654.cpp
+#        105.cpp
+#        106.cpp
+#        241.cpp
+#        435.cpp
+        c++detail.cpp
+        )
+
+target_link_directories(
+        week1
+        PRIVATE
+        abseil-cpp
+)
+# Declare dependency on the absl::strings library
+#target_link_libraries(week1 absl::Mutex)
