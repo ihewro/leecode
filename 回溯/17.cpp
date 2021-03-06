@@ -6,7 +6,7 @@
  * Description: 
  * Refer:
  */
-#include "../Utils/Util.hpp"
+#include "Util.hpp"
 
 class Solution {
 public:

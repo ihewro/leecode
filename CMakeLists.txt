@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.17)
-project(week1 VERSION 1.0.0)
+project(leecode VERSION 1.0.0)
 
 set(CMAKE_CXX_STANDARD 14)
 
@@ -14,7 +14,8 @@ set(CMAKE_CXX_STANDARD 14)
 #target_link_libraries(hello_world absl::synchronization)
 
 
-add_executable(week1
+add_executable(
+        ${PROJECT_NAME}
 #        714.cpp
 #        746.cpp
 #        103.cpp
@@ -107,12 +108,16 @@ add_executable(week1
 #        106.cpp
 #        241.cpp
 #        435.cpp
-        面试/2021_3_1_1.cpp)
+#        回溯/2021_3_1_1.cpp
+#        排序/17.14.cpp
+#        排序/QSort.cpp
+#        排序/215.cpp
+        排序/17.14_qchoice.cpp
+)
 
-target_link_directories(
-        week1
+target_include_directories(
+        ${PROJECT_NAME}
         PRIVATE
-        abseil-cpp
         Utils
 )
 # Declare dependency on the absl::strings library

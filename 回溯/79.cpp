@@ -9,7 +9,7 @@
 
 #include <utility>
 
-#include "../Utils/Util.hpp"
+#include "Util.hpp"
 
 class Solution {
 public:
@@ -17,11 +17,10 @@ public:
     vector<vector<int>> directions = {{1,  0},
                                       {0,  1},
                                       {-1, 0},
-                                      {0,  -1}};//�£��ң��ϣ���
+                                      {0,  -1}};
     vector<vector<char>> board;
-    int column;//��
-    int row;//��
-//    int find_index = 0;
+    int column;
+    int row;
     bool exist(vector<vector<char>> &board, string word) {
         if (board.empty()) {
             return false;
@@ -34,11 +33,6 @@ public:
 
         for (int i = 0; i < row; ++i) {
             for (int j = 0; j < column; ++j) {
-//                if ((row - 1 - i) * column + (column - j) < this->word.size()) {
-//                    //���⿪ʼ�������ȫ��ƥ�����ˣ��������false
-//                    return false;
-//                }
-
                 visit[i][j] = 1;
                 if (backtrack(i, j, 0, visit)) {
                     return true;
@@ -54,7 +48,7 @@ public:
      *
      * @param i
      * @param j
-     * @param path_len [i,j]��Ӧ word ����ƥ���λ��
+     * @param path_len [i,j]
      * @param visit
      * @return
      */
@@ -64,37 +58,29 @@ public:
             return false;
         }
 
-        if (path_len == this->word.size() - 1) {//���һ��Ԫ��
+        if (path_len == this->word.size() - 1) {
             return true;
         }
-
-//        if ((i == row - 1 && j == column - 1)) {
-//            return false;
-//        }
-
-        //ѡ��ռ�
         for (auto &direction : directions) {
 
-            //����
             int next_i = i + direction[0];
             int next_j = j + direction[1];
 
             if (next_i >= 0 && next_j >= 0 &&
                 next_i <= row - 1 && next_j <= column - 1 &&
-                visit[next_i][next_j] != 1) {//��һ�����ڽڵ���ڣ�����û�з��ʹ�
+                visit[next_i][next_j] != 1) {
 
                 visit[next_i][next_j] = 1;
                 bool ret = backtrack(next_i, next_j, path_len + 1, visit);
-                //����ѡ��
                 visit[next_i][next_j] = 0;
 
-                if (ret) {//��ǰԪ�ؼ��������Ԫ��ƥ������
+                if (ret) {
                     return true;
-                } else {//��������һ�����ڵ��ӽڵ�
+                } else {
                     continue;
                 }
 
-            } else {//��������һ�����ڵ��ӽڵ�
+            } else {
                 continue;
             }
 
