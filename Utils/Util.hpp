@@ -22,7 +22,7 @@
 #include <queue>
 #include <stack>
 #include <numeric>
-
+#include <array>
 class Node {
 public:
     int val;

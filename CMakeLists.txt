@@ -42,7 +42,7 @@ add_executable(
 #        testlock.cpp
 #        testlist.cpp
 #        1018.cpp
-#        947.cpp
+#        其他/947.cpp
 #        104.cpp
 #        628.cpp
 #        169.cpp
@@ -73,7 +73,7 @@ add_executable(
 #        101.cpp
 #        424.cpp
 #        94.cpp
-#        399.cpp
+#        其他/399.cpp
 #        102.cpp
 #        643.cpp
 #        20.cpp
@@ -81,7 +81,7 @@ add_executable(
 #        1208_2.cpp
 #        1208.cpp
 #        1423.cpp
-#        79.cpp
+#        回溯/79.cpp
 #        155.cpp
 #        64.cpp
 #        200.cpp
@@ -94,12 +94,18 @@ add_executable(
 #        3.cpp
 #        5.cpp
 #        5_2.cpp
+#        其他/300.cpp
+#        其他/424_2.cpp
+#        其他/139_2.cpp
+#        其他/290_2.cpp
+#        其他/205_3.cpp
+#        其他/146_2.cpp
 #        300_2.cpp
 #        1143.cpp
 #        516.cpp
 #        21.cpp
 #        1288.cpp
-#        56.cpp
+#        其他/56.cpp
 #        986.cpp
 #        116.cpp
 #        114.cpp
@@ -112,8 +118,13 @@ add_executable(
 #        排序/17.14.cpp
 #        排序/QSort.cpp
 #        排序/215.cpp
-        排序/17.14_qchoice.cpp
-)
+#        排序/17.14_qchoice.cpp
+#        其他/1539.cpp
+#        stl.cpp
+#        其他/101_2.cpp
+#        其他/236_3.cpp
+        283_2.cpp
+        206.cpp)
 
 target_include_directories(
         ${PROJECT_NAME}

@@ -61,13 +61,12 @@ public:
     }
 
 
+    //找到 x 所在树的根节点
     virtual int find(int x) {
-        // 根节点的 parent[x] == x
-        while (parent[x] != x){
-            parent[x] = parent[parent[x]];//优化2  如这样的结构，对x=3 ,操作结果就是3放到2的父亲上面，1-2-3  --> 1-2 1-3
-            x = parent[x];
+        if(parents[x] != x){ //x 的父亲节点不是根节点，则递归把 x放到树的根节点上
+            parents[x] = find(parents[x]);
         }
-        return x;
+        return parents[x];
     }
 
 };
