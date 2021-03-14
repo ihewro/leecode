@@ -16,24 +16,18 @@
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
-        if(head == nullptr){
-            return nullptr;
+        ListNode* curr = head;
+        ListNode* prev = nullptr;
+        ListNode* next;
+        while (curr!= nullptr){
+            next = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = next;
         }
-        return reverse(head);
+        return prev;
     }
 
-    ListNode* reverse(ListNode* head){
-        if (head->next == nullptr){
-            return head;
-        }
-
-        auto next = head->next;
-        auto ret = reverse(next);
-        next->next = head;
-        head->next = nullptr;
-
-        return ret;
-    }
 };
 
 int main(){

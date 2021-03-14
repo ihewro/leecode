@@ -123,8 +123,15 @@ add_executable(
 #        stl.cpp
 #        其他/101_2.cpp
 #        其他/236_3.cpp
-        283_2.cpp
-        206.cpp)
+#        283_2.cpp
+#        206.cpp
+#        io.cpp
+#        496.cpp
+#        503.cpp
+#        字节/findSeat.cpp
+        字节/virus.cpp
+#        字节/switch.cpp
+)
 
 target_include_directories(
         ${PROJECT_NAME}
