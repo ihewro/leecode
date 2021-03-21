@@ -129,8 +129,31 @@ add_executable(
 #        496.cpp
 #        503.cpp
 #        字节/findSeat.cpp
-        字节/virus.cpp
+#        字节/virus.cpp
 #        字节/switch.cpp
+#        阿里/profit.cpp
+#        阿里/profit_2.cpp
+#        阿里/profit_3.cpp
+#        Offer_46.cpp
+#        2021_3_1_2.cpp
+#        2021_3_1_1.cpp
+#        76.cpp
+#        424_3.cpp
+#        3.cpp
+#        test/qsort.cpp 836.cpp
+#        115.cpp
+#        test/function.cpp
+#        test/align.cpp
+#        排序/InsertSort.cpp
+#        阿里/upadd.cpp
+#        392.cpp
+#        binary_search.cpp
+#        69.cpp
+#        153.cpp
+#        排序/bubbleSort.cpp
+#        排序/selectSort.cpp
+        排序/MergeSort.cpp
+#        88.cpp
 )
 
 target_include_directories(

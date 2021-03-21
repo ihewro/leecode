@@ -13,6 +13,7 @@
  */
 
 
+int input = 7;
 class Solution{
 public:
     vector<vector<int>>ret;//result space
@@ -51,7 +52,7 @@ public:
 
 
 int main(){
-    int n = 3;
+    int n = 7;
     Solution solution;
     vector_util::print2D(solution.allSum(n));
 }
