@@ -152,8 +152,14 @@ add_executable(
 #        153.cpp
 #        排序/bubbleSort.cpp
 #        排序/selectSort.cpp
-        排序/MergeSort.cpp
+#        排序/MergeSort.cpp
 #        88.cpp
+#        test/test.cpp
+#        tencent/1.cpp
+#        tencent/1_2.cpp
+#        tencent/2.cpp
+        tencent/2_2.cpp
+#        tencent/3.cpp
 )
 
 target_include_directories(
