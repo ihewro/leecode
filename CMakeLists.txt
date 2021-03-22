@@ -158,8 +158,13 @@ add_executable(
 #        tencent/1.cpp
 #        tencent/1_2.cpp
 #        tencent/2.cpp
-        tencent/2_2.cpp
+#        tencent/2_2.cpp
 #        tencent/3.cpp
+#        test/hash.cpp
+#        test/test_.cpp
+#        阿里/1.cpp
+#        阿里/1_2.cpp
+        阿里/2.cpp
 )
 
 target_include_directories(
