@@ -23,6 +23,9 @@
 #include <stack>
 #include <numeric>
 #include <array>
+#include <sstream>
+#include <iomanip>
+
 using std::queue;
 class Node {
 public:

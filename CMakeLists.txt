@@ -164,8 +164,11 @@ add_executable(
 #        test/test_.cpp
 #        阿里/1.cpp
 #        阿里/1_2.cpp
-        阿里/2.cpp
-)
+#        阿里/2.cpp
+#        offer_58.cpp
+#        61.cpp
+#        美团/test_1.cpp
+        美团/test_2.cpp)
 
 target_include_directories(
         ${PROJECT_NAME}
