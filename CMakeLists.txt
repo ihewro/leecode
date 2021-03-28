@@ -116,6 +116,8 @@ add_executable(
 #        435.cpp
 #        回溯/2021_3_1_1.cpp
 #        排序/17.14.cpp
+#        17.14_2.cpp
+#        17.14_3.cpp
 #        排序/QSort.cpp
 #        排序/215.cpp
 #        排序/17.14_qchoice.cpp
@@ -167,8 +169,18 @@ add_executable(
 #        阿里/2.cpp
 #        offer_58.cpp
 #        61.cpp
+#        61_2.cpp
 #        美团/test_1.cpp
-        美团/test_2.cpp)
+#        美团/test_2.cpp
+#        美团/1.cpp
+#        美团/2.cpp
+#        美团/3.cpp
+#        美团/4.cpp
+#        美团/5.cpp
+#        周赛/5715.cpp
+#        周赛/5713.cpp
+#        周赛/5714.cpp
+        周赛/5716.cpp)
 
 target_include_directories(
         ${PROJECT_NAME}
