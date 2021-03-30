@@ -92,6 +92,7 @@ add_executable(
 #        338.cpp
 #        191.cpp
 #        3.cpp
+#        3_2.cpp
 #        5.cpp
 #        5_2.cpp
 #        其他/300.cpp
@@ -180,7 +181,15 @@ add_executable(
 #        周赛/5715.cpp
 #        周赛/5713.cpp
 #        周赛/5714.cpp
-        周赛/5716.cpp)
+#        周赛/5716.cpp
+#        test/virtual.cpp
+#        test/quote.cpp
+
+#        test/test2.cpp
+#        test/friend.cpp
+#        百度/1.cpp
+#        百度/2.cpp
+        百度/3.cpp)
 
 target_include_directories(
         ${PROJECT_NAME}

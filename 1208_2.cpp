@@ -19,9 +19,9 @@ public:
         int right = 0;
         for (right = 0; right < s.size(); right++) {
             int temp_cost = abs(s[right] - t[right]);
-            if (maxCost >= temp_cost){//����
+            if (maxCost >= temp_cost){
                 maxCost -= temp_cost;
-            }else{//����
+            }else{
                 maxCost += abs(s[left] - t[left]);
                 maxCost -= temp_cost;
                 left++;
