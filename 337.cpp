@@ -34,7 +34,8 @@ public:
     void dfs(TreeNode* node){
         if (node == nullptr){
             return ;
-        }dfs(node->left);
+        }
+        dfs(node->left);
         dfs(node->right);
         can_map[node] = std::max(can_map[node->left] + can_map[node->right],
                                         node->val + can_not_map[node->left] + can_not_map[node->right]);

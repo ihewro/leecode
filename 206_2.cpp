@@ -15,6 +15,21 @@
  */
 class Solution {
 public:
+
+    //5->4->3->2->1
+    Node* reverse(Node* head) {
+        auto current = head;
+        auto prev = nullptr;
+        while(current!=nullptr){
+            auto next = current->next;
+            current->next = prev;
+            prev = current;
+            current = next;
+        }
+
+        return prev;
+    }
+
     ListNode* reverseList(ListNode* head) {
         ListNode* curr = head;
         ListNode* prev = nullptr;

@@ -101,6 +101,8 @@ add_executable(
 #        其他/290_2.cpp
 #        其他/205_3.cpp
 #        其他/146_2.cpp
+#        146_3.cpp
+#        146_4.cpp
 #        300_2.cpp
 #        1143.cpp
 #        516.cpp
@@ -117,7 +119,7 @@ add_executable(
 #        435.cpp
 #        回溯/2021_3_1_1.cpp
 #        排序/17.14.cpp
-#        17.14_2.cpp
+        17.14.cpp
 #        17.14_3.cpp
 #        排序/QSort.cpp
 #        排序/215.cpp
@@ -189,7 +191,25 @@ add_executable(
 #        test/friend.cpp
 #        百度/1.cpp
 #        百度/2.cpp
-        百度/3.cpp)
+#        百度/3.cpp
+#        设计模式/factory.cpp
+#        设计模式/decoration.cpp
+#        设计模式/single.cpp
+#        testtest.cpp
+#        46.cpp
+#        test/iterator.cpp
+#        47.cpp test/thread.cpp test/asynchronous.cpp
+#        设计模式/Observer.cpp
+#        124.cpp 225.cpp
+#        78.cpp
+#        90.cpp
+#        25.cpp
+#        test/threadlocal.cpp
+#        test/const.cpp
+#        test/heap.cpp
+#        test/heap2.cpp
+#        tencent/4.8.cpp
+)
 
 target_include_directories(
         ${PROJECT_NAME}

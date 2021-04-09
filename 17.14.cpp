@@ -9,29 +9,32 @@
 class Solution {
 public:
     vector<int> smallestK(vector<int>& arr, int k) {
-        std::priority_queue<int,vector<int>,std::less<>> pq;
-        for (auto item: arr) {
-            pq.push(item);
-            if (pq.size() > k){
-                pq.pop();
+
+        std::priority_queue<int> q;
+        for(int i = 0;i < arr.size();i++){
+            if(q.size() == k){
+                if(arr[i] < q.top()){
+                    q.pop();
+                    q.push(arr[i]);
+                }
+            }else{
+                q.push(arr[i]);
             }
         }
-
-        vector<int> ret;
-        while (!pq.empty()){
-            ret.push_back(pq.top());
-            pq.pop();
+        vector<int> ans;
+        int size = q.size();
+        for(int i=0;i<size;i++){
+            ans.push_back(q.top());
+            q.pop();
         }
 
-        return ret;
-
+        return ans;
     }
 };
-
 int main(){
 
     Solution solution;
-    vector<int> input{1,3,5,7,2,4,6,8};
-    vector_util::print(solution.smallestK(input,4));
+    vector<int> input{1,2,3};
+    vector_util::print(solution.smallestK(input,0));
 
 }

@@ -18,20 +18,23 @@ public:
     std::vector<std::vector<int>> allSum(int n){
 
         vector<vector<vector<int>>> dp(n+1);
-        vector<vector<int>> ret = {{1}};
+        dp[0] = {{}};
+        dp[1] = {{1}};
 
+        vector<vector<int>> ret = {{1}};
         for (int i = 2; i <= n; ++i) {
-            for (int j = 0; j < dp[i-1].size(); ++j) {
-                if (dp[i-1][j].back() > 1){
-//                    dp[i-1].erase(dp[i-1].begin()+j);
-                    dp[i-1][j].push_back(1);
-                }else{
-                    dp[i-1][j].push_back(1);
+            for (int j = i; j >=1 ; --j) {
+                int k = i-j;
+                //dp[k] 和 j 合并
+                for (int l = 0; l < dp[k].size(); ++l) {
+                    if (!dp[k][l].empty() && dp[k][l].back() <= j){
+                        vector<int>temp = {j};
+                        std::copy(dp[k][l].begin(),dp[k][l].end(),std::back_inserter(temp));
+                        dp[i].push_back(temp);
+                    }
+
                 }
             }
-            dp[i-1].push_back({1,i-1});
-            dp[i-1].push_back({i});
-            dp[i] = dp[i-1];
         }
         return dp[n];
     }
@@ -44,4 +47,12 @@ int main(){
     int n = 7;
     Solution solution;
     vector_util::print2D(solution.allSum(n));
+
+//    vector<int> d_1{1,2,5};
+//    vector<int> d_2{4,6,7};
+//    vector<int>d_3;
+//    std::copy(d_1.begin(),d_1.end(),std::back_inserter(d_2));
+////    std::merge(d_1.begin(),d_1.end(),d_2.begin(),d_2.end(),std::back_inserter(d_3));
+//
+//    vector_util::print(d_2);
 }

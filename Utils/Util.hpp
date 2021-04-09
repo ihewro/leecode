@@ -126,10 +126,59 @@ public:
         next->next = nullptr;
         return root;
     }
+
+    static void print(ListNode* head){
+        while (head!= nullptr){
+            std::cout << head->val <<" " ;
+            head= head->next;
+        }
+
+        std::cout << std::endl;
+    }
 };
 
 class tree_util{
 public:
+
+    //-1表示 null,nodeList 是层次序列
+    static TreeNode* createTree(vector<int> nodeList){
+        if (nodeList.empty()){
+            return nullptr;
+        }
+
+        auto* root = new TreeNode(nodeList[0]);
+
+        std::queue<TreeNode*> q;
+        q.push(root);
+        int index = 0;
+        while (!q.empty()){
+            auto front = q.front();q.pop();
+
+//            std::cout << "tmp_root" << front->val << std::endl;
+            int left_v = (index + 1 < nodeList.size())  ? nodeList[index + 1] : INT_MIN;
+            int right_v = (index + 2 < nodeList.size())  ? nodeList[index + 2] : INT_MIN;
+
+            if (left_v == INT_MIN){
+                front->left = nullptr;
+            }else{
+                front->left = new TreeNode(left_v);
+                q.push(front->left);
+            }
+
+            if (right_v == INT_MIN){
+                front->right = nullptr;
+            }else{
+                front->right = new TreeNode(right_v);
+                q.push(front->right);
+            }
+            index +=2;
+
+        }
+
+
+        return root;
+    }
+
     static void print_preorder(TreeNode* root){
         if (root == nullptr){
             return;

@@ -12,52 +12,25 @@
 class Solution {
 public:
     bool isValid(string s) {
-
-        std::unordered_map<char,char> map{
-                {')','('},
-                {'}','{'},
-                {']','['}
-        };//�洢���ŵ�ƥ��
-
-
-
-        std::unordered_set<char> left_set{
-            '(','{','['
-        };
-
-        std::stack<char> char_stack;//ֻ��ջ������
-        for (char & i : s) {
-            if (left_set.count(i) > 0){//������
-//                std::cout << "left" << std::endl;
-
-                char_stack.push(i);
-            }else{//�����ţ���pop�����Ƿ���ƥ�䵽��Ӧ��������
-//                std::cout << "right" << std::endl;
-                char left = map[i];
-                if (char_stack.empty()){
+        std::stack<char> stack;
+        std::unordered_map<char,char> right_c{{')','('},{']','['},{'}','{'}};
+        for(int i=0;i<s.size();i++){
+            if (right_c.count(s[i]) > 0){//右操作符
+                if(stack.empty() || stack.top() != right_c[s[i]]){
                     return false;
+                }else{
+                    stack.pop();
                 }
-
-                auto top = char_stack.top();
-                if (top == left){ //��������topջ��ƥ��
-                    char_stack.pop();
-//                    std::cout << "char_stack.size" << char_stack.size() << std::endl;
-                }else{ //�������Ų�ƥ���������
-                    return false;
-                }
+            }else{
+                stack.push(s[i]);
             }
         }
 
-//        std::cout << char_stack.size() << std::endl;
-
-        return char_stack.empty();
-
-
+        return stack.empty();
     }
 };
 
-
 int main() {
     Solution solution;
-    std::cout << solution.isValid("{[]}") << std::endl;
+    std::cout << solution.isValid("]") << std::endl;
 }

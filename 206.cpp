@@ -13,31 +13,50 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
 class Solution {
 public:
+    ListNode* root;
     ListNode* reverseList(ListNode* head) {
-        if(head == nullptr){
-            return nullptr;
-        }
-        return reverse(head);
+        dfs(head);
+        return root;
     }
-
-    ListNode* reverse(ListNode* head){
-        if (head->next == nullptr){
+    //返回反转后的链表的尾节点
+    ListNode* dfs(ListNode* head){
+        if (head ->next == nullptr){
+            root = head;
             return head;
         }
-
-        auto next = head->next;
-        auto ret = reverse(next);
-        next->next = head;
+        auto tail = dfs(head->next);
+        tail->next = head;
         head->next = nullptr;
-
-        return ret;
+        return head;
     }
 };
 
+
+
+
+
+
 int main(){
-    Solution solution;
-    ListNode* root = link_util::getRootNode({1,2,3,4,5});
-    std::cout << solution.reverse(root)->val << std::endl;
+    vector<string> ret{};
+    SplitString("abaabc",ret,"aa");
+    vector_util::print(ret);
+//    Solution solution;
+//    ListNode* root = link_util::getRootNode({1,2,3,4,5});
+//    link_util::print(solution.reverseList(root)) ;
+
+
+
+
 }

@@ -13,23 +13,24 @@ public:
     vector<vector<int>> permute(vector<int>& nums) {
         vector<vector<int>> ret {};
         std::vector<int> track{};
-        backtrack(nums,track,ret);
+        vector<int>visit(nums.size(),0);
+        backtrack(visit,nums,track,ret);
         return ret;
     }
 
-    void backtrack(vector<int>& nums,std::vector<int> &track,vector<vector<int>> &ret){
+    void backtrack(vector<int>&visit, vector<int>& nums,std::vector<int> &track,vector<vector<int>> &ret){
         if (track.size() == nums.size()){//base case
             vector<int>temp{};
             temp.assign(track.begin(),track.end());
             ret.push_back(temp);
             return;
         }
-
-
         for (int i = 0; i < nums.size(); ++i) {
-            if (std::find(track.begin(),track.end(),nums[i]) == track.end()){
+            if (visit[i] == 0){
                 track.push_back(nums[i]);
-                backtrack(nums,track,ret);
+                visit[i] = 1;
+                backtrack(visit,nums,track,ret);
+                visit[i] = 0;
                 track.pop_back();
             }
         }
@@ -39,7 +40,7 @@ public:
 
 int main(){
     Solution solution;
-    vector<int> nums{1,2,3};
+    vector<int> nums{1,1,2};
     vector_util::print_2(solution.permute(nums));
 
 }
