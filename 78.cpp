@@ -4,32 +4,32 @@
 #include "Util.hpp"
 class Solution {
 public:
-    vector<vector<int>> ret;
+    vector<vector<int>>  ret;
+    void backtrace(vector<int>& nums,int index,vector<int> &path){
+        ret.push_back(path);
+
+        if(index == nums.size()){
+            return ;
+        }
+
+        for(int i=index;i<nums.size();i++){
+
+            path.push_back(nums[i]);
+            backtrace(nums,i+1,path);
+            path.pop_back();
+        }
+
+    }
     vector<vector<int>> subsets(vector<int>& nums) {
-        vector<int> path{};
-        backtrace(nums,path);
+
+        vector<int> path = {};
+        backtrace(nums,0,path);
         return ret;
     }
-
-    void backtrace(vector<int>& nums, vector<int> path){
-        ret.push_back(path);
-        for(int i = 0;i < nums.size();i++){
-            if(!path.empty() && nums[i] < path.back()){
-                continue;
-            }
-            if(std::find(path.begin(),path.end(),nums[i]) == path.end()){
-                path.push_back(nums[i]);
-                backtrace(nums,path);
-                path.pop_back();
-            }
-        }
-        //base case
-
-    }
 };
-
 int main(){
     Solution solution;
     vector<int> nums{1,2,3};
+    std::find()
     vector_util::print2D(solution.subsets(nums));
 }

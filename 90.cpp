@@ -8,18 +8,18 @@ public:
     vector<int> visit;
     vector<vector<int>> subsetsWithDup(vector<int>& nums) {
         visit.resize(nums.size(),0);
-         std::sort(nums.begin(),nums.end());
+        std::sort(nums.begin(),nums.end());
         vector<int> path{};
         backtrace(nums,path);
         return ret;
     }
     void backtrace(vector<int> &nums,vector<int> path){
+
         ret.push_back(path);
         for(int i =0;i<nums.size();i++){
             if (visit[i] == 1){
                 continue;
             }
-
             if(i> 0 && nums[i-1] == nums[i] && visit[i-1] == 0){
                 continue;
             }
@@ -37,9 +37,8 @@ public:
         }
     }
 };
-
 int main(){
     Solution solution;
-    vector<int> nums{4,4,4,1,4};
+    vector<int> nums{0,0,0,0};
     vector_util::print2D(solution.subsetsWithDup(nums));
 }

@@ -10,46 +10,36 @@
 #include "Util.hpp"
 class Solution {
 public:
-
-    string s;
-    bool isValid(int i, int j){
-        while(i < j){
-            if (s[i] != s[j]){
-                return false;
-            }
-            i++;
-            j--;
-        }
-        return true;
-    }
-
     string longestPalindrome(string s) {
-        this->s = s;
-        if (s.size() == 1){
-            return s;
-        }
-        string ret;
-
-        int max_len = 1;
-        int max_i = 0;
-        for (int i = 0; i < s.size(); ++i) {
-            for (int j = i+1; j < s.size(); ++j) {
-                //��ȡÿһ���Ӵ�
-                if (isValid(i,j)){
-                    if (j-i+1 > max_len){
-                        max_i = i;
-                        max_len = j-i+1;
-                    }
+        vector<vector<bool>> dp(s.size(),vector<bool>(s.size()));
+        //状态转移方程
+        // dp[i][j] = (dp[i+1][j-1] && s[i] == s[j]);
+        int start=0,end=0;
+        for(int i=s.size()-1;i>=0;i--){
+            for(int j=i ;j< s.size();j++){
+                if(i==j){
+                    dp[i][j] = true;
+                    continue;
                 }
-
+                dp[i][j] = ((i+1 <= j-1) ? (dp[i+1][j-1]) : true) && s[i] == s[j];
+                if(dp[i][j] && j-i > end-start){
+                    start = i;
+                    end = j;
+                }
             }
         }
-        return ret.assign(s,max_i,max_len);
+
+        string else_ret = "";
+        else_ret.insert(1,"");
+        vector<int> v;
+        return s.substr(start,end-start+1);
     }
 };
 
 
 int main() {
-    Solution solution;
-    std::cout << solution.longestPalindrome("ac") << std::endl;
+//    Solution solution;
+//    std::cout << solution.longestPalindrome("ac") << std::endl;
+
+    std::cout << -50/8 << std::endl;
 }

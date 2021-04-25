@@ -37,4 +37,6 @@ int main(){
     vector<int> input{1,2,3};
     vector_util::print(solution.smallestK(input,0));
 
+    std::set<int> set;
+
 }

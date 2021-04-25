@@ -71,16 +71,6 @@ public:
     }
 
     template<typename T>
-    static void print_2(const vector<vector<T>>& input){
-        std::cout << "[";
-        for (auto item:input){
-            print(item);
-//            std::cout << item << ",";
-        }
-        std::cout << "]" << std::endl;
-
-    }
-    template<typename T>
     static void print2D(vector<vector<T>> vectors) {
         for (auto vector: vectors) {
             vector_util::print(vector);

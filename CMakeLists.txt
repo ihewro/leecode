@@ -119,7 +119,7 @@ add_executable(
 #        435.cpp
 #        回溯/2021_3_1_1.cpp
 #        排序/17.14.cpp
-        17.14.cpp
+#        17.14.cpp
 #        17.14_3.cpp
 #        排序/QSort.cpp
 #        排序/215.cpp
@@ -209,6 +209,26 @@ add_executable(
 #        test/heap.cpp
 #        test/heap2.cpp
 #        tencent/4.8.cpp
+#        微软/demo.cpp
+#        微软/3.cpp
+#        微软/1.cpp
+#        微软/2.cpp
+#        83.cpp
+#        912.cpp
+#        912_merge.cpp
+#        15.cpp
+#        23.cpp
+#        54.cpp
+#        148.cpp
+#        165.cpp
+#        118.cpp
+#        93.cpp
+        test/testtest.cpp
+#        test/thread2.cpp
+#        166.cpp
+#        518.cpp
+#        343.cpp
+#        560.cpp
 )
 
 target_include_directories(

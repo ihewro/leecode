@@ -22,48 +22,38 @@
  */
 class Solution {
 public:
-    vector<int> _preorder;
-    vector<int> _inorder;
-    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
-        auto* root = new TreeNode(-1);
-        if (preorder.empty() ||(preorder.size() ==1 && preorder[0] == -1)){
-            return root;
-        }
-        this->_preorder = std::move(preorder);
-        this->_inorder = std::move(inorder);
 
-        root = build(0,_preorder.size()-1,0, _inorder.size()-1);
-
-        return root;
-    }
-
-    TreeNode* build(int pre_i,int pre_j, int in_i,int in_j){
-        if (pre_i > pre_j || in_i > in_j){
+    TreeNode* dfsBuildTree(vector<int>& preorder, vector<int>& inorder,int pre_begin,int pre_end,int in_begin,int in_end){
+        if (pre_begin > pre_end){
             return nullptr;
         }
-        auto * root = new TreeNode(_preorder[pre_i]);
-
-        if (pre_i == pre_j || in_i == in_j){
-            return root;
-        }
-        int p = 0;
-        for (int i = in_i; i <=in_j ; ++i) {
-            if (_inorder[i] == root->val){
-                p = i;
-                break;
-            }
+        if(pre_begin == pre_end){
+            return new TreeNode(preorder[pre_end]);
         }
 
-        int left_len = p-1 - in_i + 1;
-        root->left = build(pre_i+1,pre_i+1+left_len-1, in_i,p-1);
-        root->right = build(pre_i+1+left_len,pre_j, p+1,in_j);
+        //获取当前根节点
+        TreeNode* root = new TreeNode(preorder[pre_begin]);
+        //寻找根节点在中序中的位置
+        int index = in_begin;
+        while(inorder[index] != root->val){
+            index++;
+        }
 
+        int left_len = index - in_begin + 1;
+
+
+        TreeNode* left = dfsBuildTree(preorder,inorder,pre_begin+1,pre_begin+left_len, in_begin,index-1);//构建左子树
+        TreeNode* right = dfsBuildTree(preorder,inorder,pre_begin+left_len+1,pre_end, index+1,in_end);//构建右子树
+        root->left = left;
+        root->right = right;
         return root;
     }
 
 
+    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
+        return dfsBuildTree(preorder,inorder,0,preorder.size()-1,0,inorder.size()-1);
+    }
 };
-
 
 int main() {
     Solution solution;
