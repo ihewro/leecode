@@ -223,13 +223,17 @@ add_executable(
 #        165.cpp
 #        118.cpp
 #        93.cpp
-        test/testtest.cpp
+#        test/testtest.cpp
 #        test/thread2.cpp
 #        166.cpp
 #        518.cpp
 #        343.cpp
 #        560.cpp
-)
+#        tencent/test.cpp
+#        test/912_insert.cpp
+#        59.cpp
+#        43.cpp
+        tencent/5.7.cpp)
 
 target_include_directories(
         ${PROJECT_NAME}

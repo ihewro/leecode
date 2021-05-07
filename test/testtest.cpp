@@ -1,29 +1,28 @@
-//
-// Created by hewro on 2021/4/22.
-//
-#include "Util.hpp"
-template <typename T>
-class Blob{
+#include "iostream"
+using namespace std;
+
+class A {
 public:
-    typename vector<T>::size_type  sizeType;
-
-    template<typename R>
-    void echo(R val){
-        std::cout << val << std::endl;
+    void PrintA()  {
+        cout << "A";
     }
-
-    void print(T val);
+//    virtual void PrintA()  {
+//        cout << "A";
+//    }
 };
 
-template<typename T>
-void Blob<T>::print(T val) {}
+class B {
+public:
+    void PrintB()  {
+        cout << "B";
+    }
+//    virtual void PrintB()  {
+//        cout << "B";
+//    }
+};
 
 int main(){
-    Blob<int> b{};
-    b.sizeType = 20;
-    std::cout << b.sizeType << std::endl;
-    b.echo("20");
-
-    std::mutex lock;
-
+    A* pa = new A();
+    B* pb = (B*)pa;
+    pb->PrintB();
 }
