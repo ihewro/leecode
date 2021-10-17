@@ -27,6 +27,12 @@
 #include <iomanip>
 
 using std::queue;
+using std::vector;
+using std::unordered_set;
+using std::unordered_map;
+using std::min;
+using std::cin;
+
 class Node {
 public:
     int val;
@@ -132,7 +138,23 @@ public:
 };
 
 class tree_util{
+private:
+    static TreeNode* dfs(vector<int>& nodeList,int head){
+        if (head >= nodeList.size() || nodeList[head] == INT_MAX){
+            return nullptr;
+        }
+        auto root = new TreeNode(nodeList[head]);
+        auto left = dfs(nodeList,head+1);
+        auto right = dfs(nodeList,head+2);
+        root->left = left;
+        root->right = right;
+        return root;
+    }
 public:
+    // error
+    static TreeNode* getRootNode(vector<int> nodeList){
+        return dfs(nodeList,0);
+    }
     static void print_preorder(TreeNode* root){
         if (root == nullptr){
             return;

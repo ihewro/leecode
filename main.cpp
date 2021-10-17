@@ -2,74 +2,20 @@
 #include <chrono>
 #include <mutex>
 #include <thread>
-std::mutex mt1;
-std::mutex mt2;
+#include "bits/stdc++.h"
 
-volatile bool ok = true;
-volatile bool no = false;
+#define N 2
 
 
-bool getOk(){
-    std::unique_lock<std::mutex>lock1(mt1);
-    return ok;
-}
-
-bool getNo(){
-    std::unique_lock<std::mutex>lock(mt2);
-    return no;
-}
-
-void setNo(){
-    std::unique_lock<std::mutex>lock(mt2);
-    no = true;
-}
-
-void setYes(){
-    std::unique_lock<std::mutex>lock1(mt1);
-    ok = false;
-}
-
-void deadLock()
+int main()
 {
-    std::cout << "deadLock begin" << std::endl;
-    getOk() ;
+    string s1 = "abab";
+    string s2 = "aba";
+    int p =  (s1 + s1).find(s1, 1);
+    printf("%s中%s出现的下标索引为%d\n其中子串为: %s, 重复次数为 : %d\n",
+           (s1 + s1).c_str(), s1.c_str(), p, s1.substr(0, p).c_str(), s1.size() / p);
+    std::cout << std::endl;
+    printf("%s中%s出现的下标索引为%d \n", (s2 + s2).c_str(), s2.c_str(), (s2 + s2).find(s2, 1));
 
-//    std::this_thread::sleep_for(std::chrono::milliseconds(10));
-
-    getNo();
-    std::cout << "deadLock end" << std::endl;
-
-}
-
-void deadLock2()
-{
-    std::cout << "deadLock2 begin" << std::endl;
-    getNo();
-//    std::this_thread::sleep_for(std::chrono::milliseconds(15));
-
-    getOk();
-    std::cout << "deadLock2 end" << std::endl;
-
-}
-
-
-void deadLock3()
-{
-    std::cout << "deadLock3 begin" << std::endl;
-    setNo();
-    std::cout << "deadLock3 end" << std::endl;
-
-}
-
-int main() {
-    std::thread t1([&] {deadLock(); });
-    std::thread t2([&] {deadLock2(); });
-    std::thread t3([&] {deadLock3(); });
-    t1.detach();
-    t2.detach();
-    t3.detach();
-
-    while (true){
-
-    }
+    return 0;
 }

@@ -233,7 +233,22 @@ add_executable(
 #        test/912_insert.cpp
 #        59.cpp
 #        43.cpp
-        tencent/5.7.cpp)
+#        tencent/5.7.cpp
+#        微软/秋招/3.cpp
+#        微软/秋招/2.cpp 微软/秋招/1.cpp
+#        华为/1.cpp
+#        华为/3.cpp
+#        华为/2.cpp
+#        743.cpp
+#        743_2.cpp
+#        483.cpp
+#        968.cpp
+#        968_2.cpp
+        美团/1_1.cpp
+#        美团/2_4.cpp
+#        美团/2_3.cpp
+#        美团/2_2.cpp
+)
 
 target_include_directories(
         ${PROJECT_NAME}
